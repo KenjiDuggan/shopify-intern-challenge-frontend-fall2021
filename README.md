@@ -33,9 +33,9 @@ I decided I would use this challenge as a practice to try out Test-Driven Develo
 7. Write end-to-end testing, probably going to try out Nightwatch
 
 
-## Features Chosen
+## Features & Requirements
 
-### Core Features & Requirements
+### Core  
 * Search OMDB and display movies using [OMDB's API](http://www.omdbapi.com/apikey.aspx) 
 * Each search result should list film title, year of release and a button to nominate it (Keep track of nominated movies) 
 * Updates to the search terms will update the result list  
@@ -43,7 +43,7 @@ I decided I would use this challenge as a practice to try out Test-Driven Develo
 * If a movie is nominated then its nomination button should be disabled
 * If user reaches five nominations, display an information banner saying so
 
-### Extra Features & Requirements
+### Extra  
 * Maintained nomination list state when user leaves page
 * Animations everywhere it seems appropriate
 * Create shareable links (to share movies list I assume)
