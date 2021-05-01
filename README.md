@@ -47,8 +47,14 @@ I decided I would use this challenge as a practice to try out Test-Driven Develo
 * Maintained nomination list state when user leaves page
 * Animations everywhere it seems appropriate
 * Create shareable links (to share movies list I assume)
-* Third-party authentication and user profile page
+* Very optional: Dark mode toggle
+* Very optional: Third-party authentication and user profile page
 and potentially more
+
+
+## Design Inspirations
+* [Desktop Version: Screenshot of Challenge Creators](https://docs.google.com/document/d/1SdR9rQpocsH5rPTOcxr9noqHRld5NJlylKO9Hf94U8U/edit#)
+* [Mobile Dark Mode](https://dribbble.com/shots/15248148-Cinema-App-P1) 
 
 
 ## Hosting Details
