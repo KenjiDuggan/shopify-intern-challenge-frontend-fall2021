@@ -44,4 +44,14 @@ I decided I would use this challenge as a practice to try out Test-Driven Develo
 * If user reaches five nominations, display an information banner saying so
 
 ### Extra Features & Requirements
-* 
+* Maintained nomination list state when user leaves page
+* Animations everywhere it seems appropriate
+* Create shareable links (to share movies list I assume)
+* Third-party authentication and user profile page
+and potentially more
+
+
+## Hosting Details
+
+Coming soon, probably going to use Heroku
+
