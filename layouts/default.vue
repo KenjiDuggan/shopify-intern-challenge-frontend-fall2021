@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="appContainer">
+    <!-- Probably put a navigation bar for logo, name and potential other links(if other pages are added) -->
     <Nuxt />
   </div>
 </template>
@@ -15,6 +16,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  background-color: var(--bg);
+}
+
+.appContainer {
+  background-color: var(--bg);
 }
 
 *,
