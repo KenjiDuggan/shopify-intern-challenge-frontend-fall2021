@@ -25,19 +25,19 @@
       </b-col>
     </b-row>
     <b-row>
-      <!-- Search Bar Desktop Container -->
       <b-col cols="12">
+        <!-- Search Bar Component - Input Text for Movie Title Search -->
         <SearchBar />
       </b-col>
     </b-row>
     <br /><br /><br />
     <b-row>
-      <!-- Movie List Desktop Container -->
       <b-col cols="6">
+        <!-- Movie List Component - Cards Listing Movies from Search Requests -->
         <MovieList />
       </b-col>
-      <!-- Nomine List Desktop Container -->
       <b-col cols="6">
+        <!-- Nominee List Component - Cards Listing Movies That Were Selected By User For Nomination -->
         <NomineeList />
       </b-col>
     </b-row>
@@ -60,6 +60,7 @@ export default {
     return {
       title: 'The Shoppies',
       checked: false,
+      movieData: {},
     }
   },
   computed: {
@@ -79,6 +80,12 @@ export default {
         this.$nuxt.$colorMode.preference = 'light'
       }
     },
+  },
+  created() {
+    this.$nuxt.$on('searchResults', (movies) => {
+      console.log(movies)
+      this.movieData = movies
+    })
   },
 }
 </script>
