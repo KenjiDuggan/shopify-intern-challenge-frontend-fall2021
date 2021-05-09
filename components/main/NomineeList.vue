@@ -1,17 +1,31 @@
 <template>
   <b-container class="nomineeListContainer">
-    <h4>Nominee List will go here</h4>
+    <h4>Nominations</h4>
     <br />
     <ul>
-      <li>Title (Year) <button>Remove</button></li>
-      <li>Title (Year) <button>Remove</button></li>
-      <li>Title (Year) <button>Remove</button></li>
+      <li v-for="(nominee, index) in nominees" :key="index">
+        {{ nominee.Title }} ( {{ nominee.Year }} )
+        <b-button variant="success" @click="removeNominee(index)"
+          >Remove</b-button
+        >
+      </li>
     </ul>
   </b-container>
 </template>
 <script>
 export default {
   name: 'NomineeList',
+  props: {
+    nominees: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  methods: {
+    removeNominee(index) {
+      this.$nuxt.$emit('removeNominee', index)
+    },
+  },
 }
 </script>
 <style scoped>

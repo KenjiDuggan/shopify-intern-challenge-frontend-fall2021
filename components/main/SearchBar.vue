@@ -6,6 +6,7 @@
       placeholder="Enter your movie title"
       @change="updateMovieSearch"
     ></b-form-input>
+    <div v-if="showMessage">{{ requestMessage }}</div>
   </b-container>
 </template>
 <script>
@@ -17,6 +18,8 @@ export default {
   data() {
     return {
       input: '',
+      requestMessage: '',
+      showMessage: false,
     }
   },
   methods: {
@@ -31,13 +34,21 @@ export default {
       // Save the cancel token for the current request
       cancelToken = axios.CancelToken.source()
 
+      // Try the axios request with the query that search bar contains
       try {
         const results = await axios.get(
-          `${url}?apikey=${apiKey}&t=${searchTerm}`,
+          `${url}?apikey=${apiKey}&s=${searchTerm}`,
           { cancelToken: cancelToken.token } // Pass the cancel token to the current request
         )
-        this.$nuxt.$emit('searchResults', results.data)
-        console.log('Results for ' + searchTerm + ': ', results.data)
+        if (results.data.Response) {
+          // Search array exists, emit the new results
+          const searchResults = { query: searchTerm, data: results.data.Search }
+          this.$nuxt.$emit('searchResults', searchResults)
+        } else {
+          // Show request message
+          this.requestMessage = results.data.Message
+          this.showMessage = true
+        }
       } catch (error) {
         console.log(error)
       }

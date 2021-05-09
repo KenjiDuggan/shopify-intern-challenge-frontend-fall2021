@@ -34,11 +34,15 @@
     <b-row>
       <b-col cols="6">
         <!-- Movie List Component - Cards Listing Movies from Search Requests -->
-        <MovieList />
+        <MovieList
+          :query="query"
+          :movies="movies"
+          :disabling-list="validMovieList"
+        />
       </b-col>
       <b-col cols="6">
         <!-- Nominee List Component - Cards Listing Movies That Were Selected By User For Nomination -->
-        <NomineeList />
+        <NomineeList :nominees="nominees" />
       </b-col>
     </b-row>
   </b-container>
@@ -60,7 +64,10 @@ export default {
     return {
       title: 'The Shoppies',
       checked: false,
-      movieData: {},
+      movies: [],
+      query: '',
+      nominees: [],
+      nominated: [],
     }
   },
   computed: {
@@ -70,6 +77,25 @@ export default {
       } else {
         return 'Light'
       }
+    },
+    nomineeIdList() {
+      const currentNominees = this.nominees
+      const nomineeIdList = []
+      currentNominees.forEach((nominee) => {
+        nomineeIdList.push(nominee.imdbID)
+      })
+      return nomineeIdList
+    },
+    validMovieList() {
+      const valid = []
+
+      // Iterate through all nominees and provide true/false array for every movie in movie search list
+      this.movies.forEach((movie) => {
+        valid.push(
+          this.nominees.some((nominee) => nominee.imdbID === movie.imdbID)
+        )
+      })
+      return valid
     },
   },
   watch: {
@@ -82,9 +108,20 @@ export default {
     },
   },
   created() {
+    // Listening for search results from SearchBar component
     this.$nuxt.$on('searchResults', (movies) => {
-      console.log(movies)
-      this.movieData = movies
+      this.query = movies.query
+      this.movies = movies.data
+    })
+
+    // Listening for nominated movie from MovieList component
+    this.$nuxt.$on('nomineeMovie', (nominee) => {
+      this.nominees.push(nominee)
+    })
+
+    // Listening for ID of movie to be removed
+    this.$nuxt.$on('removeNominee', (index) => {
+      this.nominees.splice(index, 1)
     })
   },
 }
