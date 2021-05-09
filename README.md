@@ -45,4 +45,4 @@ and potentially more
 
 
 ## Hosting Details
-Netlify
+Netlify, Static Build Hosting: https://shoppiesfall2021.netlify.app/
