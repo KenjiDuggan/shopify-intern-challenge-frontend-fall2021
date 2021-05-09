@@ -43,6 +43,7 @@ export default {
           apiKey: process.env.omdbApiKey,
           s: this.input,
         }
+
         const results = await this.$axios(
           {
             params,
