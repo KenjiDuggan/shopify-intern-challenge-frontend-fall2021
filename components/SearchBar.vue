@@ -1,11 +1,16 @@
 <template>
   <b-container class="searchBarContainer">
     <h4>Movie Title</h4>
-    <b-form-input
-      v-model="input"
-      placeholder="Enter your movie title"
-      @change="updateMovieSearch"
-    ></b-form-input>
+    <b-input-group>
+      <b-input-group-prepend>
+        <span class="input-group-text"><fa :icon="['fas', 'search']" /></span>
+      </b-input-group-prepend>
+      <b-form-input
+        v-model="input"
+        placeholder="Enter your movie title"
+        @change="updateMovieSearch"
+      ></b-form-input>
+    </b-input-group>
     <div v-if="showMessage">{{ requestMessage }}</div>
   </b-container>
 </template>

@@ -14,11 +14,6 @@
   "lint-staged": {
     "*.{js,vue}": "eslint"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/bootstrap-vue": "^2.0.4",
@@ -28,6 +23,10 @@
     "nuxt": "^2.15.3"
   },
   "devDependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^2.0.2",
     "@nuxtjs/color-mode": "^2.0.5",
     "@nuxtjs/device": "^2.1.0",
     "@nuxtjs/eslint-config": "^6.0.0",
@@ -38,7 +37,6 @@
     "autoprefixer": "^9.8.6",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.3",
     "css-loader": "^5.2.4",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
@@ -46,10 +44,8 @@
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.7.0",
-    "husky": "^4.3.8",
-    "jest": "^26.6.3",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "vue-jest": "^3.0.4"
+    "nuxt-fontawesome": "^0.4.0",
+    "prettier": "^2.2.1"
   }
 }

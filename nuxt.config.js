@@ -32,9 +32,16 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/fontawesome',
     '@nuxtjs/color-mode',
     '@nuxtjs/google-fonts',
+    ['nuxt-fontawesome', {
+      component: 'fa', //customize component name
+      imports: [{
+          set: '@fortawesome/free-solid-svg-icons',
+          icons: ['faSearch']
+          },
+      ]
+   }]
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
