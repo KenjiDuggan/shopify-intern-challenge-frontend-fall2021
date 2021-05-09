@@ -78,9 +78,9 @@ export default {
       try {
         await this.$copyText(JSON.stringify(this.nominees))
       } catch (e) {
-        /* eslint no-console: ["error", { allow: ["error"] }] */
-
-        console.error(e)
+         /* eslint no-console: ["error", { allow: ["error"] }] */
+        
+        console.error(e);
       }
     },
   },

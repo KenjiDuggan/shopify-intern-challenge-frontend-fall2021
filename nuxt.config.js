@@ -16,6 +16,13 @@ export default {
     omdbUrl: process.env.OMDB_URL,
     omdbApiKey: process.env.OMDB_APIKEY
   },
+  publicRuntimeConfig: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    omdbUrl: process.env.OMDB_URL,
+  },
+  privateRuntimeConfig: {
+    omdbApiKey: process.env.OMDB_APIKEY
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/main.css'],

@@ -36,14 +36,14 @@ export default {
       }
       // Save the cancel token for the current request
       cancelToken = this.$axios.CancelToken.source()
-
+ 
       // Try the axios request with the query that search bar contains
       try {
         const params = {
           apiKey: process.env.omdbApiKey,
           s: this.input,
         }
-
+ 
         const results = await this.$axios(
           {
             params,
