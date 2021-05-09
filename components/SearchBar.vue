@@ -17,7 +17,6 @@
   </b-container>
 </template>
 <script>
-import axios from 'axios'
 let cancelToken
 
 export default {
@@ -31,32 +30,30 @@ export default {
   },
   methods: {
     async updateMovieSearch() {
-      const url = process.env.omdbUrl
-      const apiKey = process.env.omdbApiKey
-      const searchTerm = this.input
       // Check if there are any previous pending requests
       if (typeof cancelToken !== typeof undefined) {
         cancelToken.cancel('Operation canceled due to new search query.')
       }
       // Save the cancel token for the current request
-      cancelToken = axios.CancelToken.source()
+      cancelToken = this.$axios.CancelToken.source()
 
       // Try the axios request with the query that search bar contains
       try {
         const params = {
-          apiKey,
-          s: searchTerm,
+          apiKey: process.env.omdbApiKey,
+          s: this.input,
         }
-        const results = await axios.get(
-          url,
+        const results = await this.$axios(
           {
             params,
+            baseURL: 'http://www.omdbapi.com',
             cancelToken: cancelToken.token,
           } // Pass the cancel token to the current request
         )
+
         if (results.data.Response) {
           // Search array exists, emit the new results
-          const searchResults = { query: searchTerm, data: results.data.Search }
+          const searchResults = { query: this.input, data: results.data.Search }
           this.$nuxt.$emit('searchResults', searchResults)
         } else {
           // Show request message

@@ -61,10 +61,7 @@ export default {
     // Nuxt Clipboard Module
     ['nuxt-clipboard', { autoSetContainer: true }]
   ],
-  axios: {
-    baseURL: process.env.OMDB_URL | 'http://www.omdbapi.com/', // Used as fallback if no runtime config is provided
-  },
-
+  
   clipboard: {
     autoSetContainer: true
   },
