@@ -3,7 +3,9 @@
     <h4>Movie Title</h4>
     <b-input-group>
       <b-input-group-prepend>
-        <span class="input-group-text"><fa :icon="['fas', 'search']" /></span>
+        <span class="input-group-text">
+          <font-awesome-icon :icon="['fas', 'search']" />
+        </span>
       </b-input-group-prepend>
       <b-form-input
         v-model="input"
@@ -41,9 +43,16 @@ export default {
 
       // Try the axios request with the query that search bar contains
       try {
+        const params = {
+          apiKey,
+          s: searchTerm,
+        }
         const results = await axios.get(
-          `${url}?apikey=${apiKey}&s=${searchTerm}`,
-          { cancelToken: cancelToken.token } // Pass the cancel token to the current request
+          url,
+          {
+            params,
+            cancelToken: cancelToken.token,
+          } // Pass the cancel token to the current request
         )
         if (results.data.Response) {
           // Search array exists, emit the new results
@@ -55,7 +64,9 @@ export default {
           this.showMessage = true
         }
       } catch (error) {
-        alert(error)
+        /* eslint no-console: ["error", { allow: ["error"] }] */
+
+        console.error(error)
       }
     },
   },

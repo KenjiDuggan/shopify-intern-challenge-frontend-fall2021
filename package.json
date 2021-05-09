@@ -20,7 +20,9 @@
     "@nuxtjs/pwa": "^3.3.5",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.9.1",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.3",
+    "nuxt-clipboard": "0.0.4",
+    "vue-social-sharing": "^3.0.7"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.3",

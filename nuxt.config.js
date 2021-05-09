@@ -23,6 +23,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/bootstrap-vue',
+    '@/plugins/vue-social-sharing'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -35,21 +36,35 @@ export default {
     '@nuxtjs/color-mode',
     '@nuxtjs/google-fonts',
     ['nuxt-fontawesome', {
-      component: 'fa', //customize component name
-      imports: [{
-          set: '@fortawesome/free-solid-svg-icons',
-          icons: ['faSearch']
-          },
-      ]
-   }]
+            imports: [
+            {
+              set: '@fortawesome/free-solid-svg-icons',
+              icons: ['fas']
+            },
+            {
+              set:'@fortawesome/free-brands-svg-icons',
+              icons: ['fab']
+            }
+          ]
+          }
+    ]
   ],
+ 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // Vue Social Sharing Module
+    'vue-social-sharing/nuxt',
+    // Nuxt Clipboard Module
+    ['nuxt-clipboard', { autoSetContainer: true }]
   ],
+
+  clipboard: {
+    autoSetContainer: true
+  },
 
   googleFonts: {
      families: {
