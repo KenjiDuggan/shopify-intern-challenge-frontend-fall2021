@@ -1,5 +1,10 @@
 # UX Developer Intern & Web Developer Intern Challenge - Fall 2021
 
+## Hosting Details
+Live Site: https://shoppiesfall2021.netlify.app/
+Netlify, Static Build Hosting
+
+
 ## Build Setup
 
 ```bash
@@ -31,18 +36,11 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 * If user reaches five nominations, display an information banner saying so (done)
 
 ### Extra  
-* Maintained nomination list state when user leaves page
-* Animations everywhere it seems appropriate
-* Create shareable links (to share movies list I assume)
-* Very optional: Dark mode toggle (done, easily done with nuxtjs plugin)
-* Very optional: Third-party authentication and user profile page
-and potentially more
+* Create shareable links (to share movies list I assume) (done)
+* Animations everywhere it seems appropriate (done)
+* Dark mode toggle (done, easily done with nuxtjs plugin)
 
 
 ## Design Inspirations
 * [Desktop Version: Screenshot of Challenge Creators](https://docs.google.com/document/d/1SdR9rQpocsH5rPTOcxr9noqHRld5NJlylKO9Hf94U8U/edit#)
 * [Mobile Dark Mode](https://dribbble.com/shots/15248148-Cinema-App-P1) 
-
-
-## Hosting Details
-Netlify, Static Build Hosting: https://shoppiesfall2021.netlify.app/
