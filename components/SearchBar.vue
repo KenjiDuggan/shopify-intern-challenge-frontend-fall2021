@@ -50,7 +50,7 @@ export default {
           this.showMessage = true
         }
       } catch (error) {
-        console.log(error)
+        alert(error)
       }
     },
   },
