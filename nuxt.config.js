@@ -11,18 +11,13 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   // Environment variables
-  env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-    omdbUrl: process.env.OMDB_URL,
-    omdbApiKey: process.env.OMDB_APIKEY
-  },
   publicRuntimeConfig: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
     omdbUrl: process.env.OMDB_URL,
     omdbApiKey: process.env.OMDB_APIKEY
   },
   privateRuntimeConfig: {
-    
+ 
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
