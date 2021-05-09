@@ -37,8 +37,6 @@ export default {
       // Save the cancel token for the current request
       cancelToken = this.$axios.CancelToken.source()
 
-      alert(JSON.stringify(this.$config))
-
       // Try the axios request with the query that search bar contains
       try {
         const params = {
