@@ -30,7 +30,14 @@
         <SearchBar />
       </b-col>
     </b-row>
-    <br /><br /><br />
+    <br />
+    <!-- Banner Component - Shows when there are 5 nominees in the list -->
+    <b-row v-if="nomineeCount == 5">
+      <b-col cols="12">
+        <CompletionBanner :nominees="nominees" />
+      </b-col>
+    </b-row>
+    <br />
     <b-row>
       <b-col cols="6">
         <!-- Movie List Component - Cards Listing Movies from Search Requests -->
@@ -49,15 +56,17 @@
 </template>
 
 <script>
-import SearchBar from '../components/main/SearchBar'
-import MovieList from '../components/main/MovieList'
-import NomineeList from '../components/main/NomineeList'
+import SearchBar from '../components/SearchBar'
+import MovieList from '../components/MovieList'
+import NomineeList from '../components/NomineeList'
+import CompletionBanner from '../components/CompletionBanner'
 
 export default {
   components: {
     SearchBar,
     MovieList,
     NomineeList,
+    CompletionBanner,
   },
   layout: (ctx) => (ctx.isMobile ? 'mobile' : 'default'),
   data() {
@@ -71,6 +80,20 @@ export default {
     }
   },
   computed: {
+    validMovieList() {
+      let valid = []
+      if (this.nomineeCount === 5) {
+        valid = new Array(this.movies.length).fill(true)
+      } else {
+        // Iterate through all nominees and provide true/false array for every movie in movie search list
+        this.movies.forEach((movie) => {
+          valid.push(
+            this.nominees.some((nominee) => nominee.imdbID === movie.imdbID)
+          )
+        })
+      }
+      return valid
+    },
     colorMode() {
       if (this.checked) {
         return 'Dark'
@@ -86,16 +109,8 @@ export default {
       })
       return nomineeIdList
     },
-    validMovieList() {
-      const valid = []
-
-      // Iterate through all nominees and provide true/false array for every movie in movie search list
-      this.movies.forEach((movie) => {
-        valid.push(
-          this.nominees.some((nominee) => nominee.imdbID === movie.imdbID)
-        )
-      })
-      return valid
+    nomineeCount() {
+      return this.nominees.length
     },
   },
   watch: {
