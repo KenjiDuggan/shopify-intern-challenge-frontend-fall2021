@@ -2,7 +2,10 @@
     --color: #243746;
     --color-primary: #158876;
     --color-secondary: #0e2233;
+    --button-primary: #ffbc04;
     --bg: #f3f5f4;
+    --card-top: #96c044;
+    --card-bottom: rgb(86, 151, 1);
     --bg-secondary: #fff;
     --border-color: #ddd;
   }
@@ -11,8 +14,11 @@
     --color: #ebf4f1;
     --color-primary: #41b38a;
     --color-secondary: #fdf9f3;
+    --button-primary: #ffbc04;
     --bg: #091a28;
-    --bg-secondary: #071521;
+    --card-top: #38383d;
+    --card-bottom: #000000;
+    --bg-secondary: #0f0f19;
     --border-color: #0d2538;
   }
  

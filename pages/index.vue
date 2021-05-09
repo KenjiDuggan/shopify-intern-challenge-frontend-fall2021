@@ -2,10 +2,11 @@
   <b-container class="pageBody">
     <br /><br /><br />
     <b-row>
-      <b-col cols="6">
-        <h1 class="bold">{{ title }}</h1>
+      <b-col md="6">
+        <img src="~/static/shopify-logo.png" class="shopifyLogo" />
+        <h1 class="bold shopifyTitle">{{ title }}</h1>
       </b-col>
-      <b-col cols="6">
+      <b-col md="6">
         <b-form-group
           id="fieldset-horizontal"
           label-cols-sm="4"
@@ -25,7 +26,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col cols="12">
+      <b-col md="12">
         <!-- Search Bar Component - Input Text for Movie Title Search -->
         <SearchBar />
       </b-col>
@@ -33,13 +34,13 @@
     <br />
     <!-- Banner Component - Shows when there are 5 nominees in the list -->
     <b-row v-if="nomineeCount == 5">
-      <b-col cols="12">
+      <b-col md="12">
         <CompletionBanner :nominees="nominees" />
       </b-col>
     </b-row>
     <br />
     <b-row>
-      <b-col cols="6">
+      <b-col md="6">
         <!-- Movie List Component - Cards Listing Movies from Search Requests -->
         <MovieList
           :query="query"
@@ -47,7 +48,7 @@
           :disabling-list="validMovieList"
         />
       </b-col>
-      <b-col cols="6">
+      <b-col md="6">
         <!-- Nominee List Component - Cards Listing Movies That Were Selected By User For Nomination -->
         <NomineeList :nominees="nominees" />
       </b-col>
@@ -84,6 +85,11 @@ export default {
       let valid = []
       if (this.nomineeCount === 5) {
         valid = new Array(this.movies.length).fill(true)
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        })
       } else {
         // Iterate through all nominees and provide true/false array for every movie in movie search list
         this.movies.forEach((movie) => {
@@ -145,5 +151,16 @@ export default {
 <style scoped>
 .pageBody {
   color: var(--color);
+}
+.shopifyLogo {
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+.shopifyTitle {
+  display: inline-block;
+  padding-top: 15px;
+  padding-left: 15px;
 }
 </style>

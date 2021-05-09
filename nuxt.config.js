@@ -33,7 +33,8 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/fontawesome',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxtjs/google-fonts',
   ],
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -42,6 +43,14 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
+
+  googleFonts: {
+     families: {
+      'Space+Grotesk': {
+        wght: [300, 400, 500, 600, 700]
+      },
+     } 
+  },
  
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
