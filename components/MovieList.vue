@@ -1,6 +1,6 @@
 <template>
   <b-container class="movieListContainer">
-    <h4>Results for {{ query }}</h4>
+    <h4>Results for "{{ query }}"</h4>
     <br />
     <div v-for="(movie, index) in movies" :key="index" class="movieCard">
       <b-row>
